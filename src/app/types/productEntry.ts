@@ -2,7 +2,8 @@ import {Product} from "./product";
 import {Order} from "./order";
 
 export type ProductEntry = {
-  order: Order,
+  id: number;
+  order: Order;
   product: Product;
   amount: number;
 }
