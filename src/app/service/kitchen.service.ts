@@ -67,7 +67,7 @@ export class KitchenService {
     }
 
     let order2: Order = {
-      uuid: "1",
+      uuid: "2",
       status: "in_progress",
       entries: [
         {
