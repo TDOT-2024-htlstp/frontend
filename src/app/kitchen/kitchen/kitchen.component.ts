@@ -20,14 +20,14 @@ export class KitchenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.elements.set(this.service.getOrdersMock());
-
-    // this.getAllOrders()
+    // this.elements.set(this.service.getOrdersMock());
+    this.getAllOrders()
   }
 
   getAllOrders() {
     this.service.getAllOrders().subscribe({
       next: (response: Order[]) => {
+        console.log(response)
         this.elements.set(response);
       },
       error: (err) => {
