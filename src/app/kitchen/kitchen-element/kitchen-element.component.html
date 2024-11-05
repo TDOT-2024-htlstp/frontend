@@ -1,0 +1,10 @@
+<button (click)="orderReady()" class="order-button">
+  <h1 class="order-id">Bestell-ID: {{ order().uuid }}</h1>
+
+  @for (entry of order().entries; track entry.id) {
+    <div class="entry">
+      <span class="product-name">{{ entry.product.name }}:</span>
+      <span class="product-amount">{{ entry.amount }}</span>
+    </div>
+  }
+</button>

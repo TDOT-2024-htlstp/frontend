@@ -1,1 +1,3 @@
-<p>kitchen works!</p>
+@for (element of elements; track element.uuid) {
+  <app-kitchen-element [order]="element"></app-kitchen-element>
+}
