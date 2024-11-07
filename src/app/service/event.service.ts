@@ -17,7 +17,6 @@ export class EventService {
             console.log('Connected: ' + frame);
 
             this.client.subscribe("/api/orders", (orders => {
-                console.log(orders.body)
                 this.kitchenService.elements.set(JSON.parse(orders.body))
             }))
         };

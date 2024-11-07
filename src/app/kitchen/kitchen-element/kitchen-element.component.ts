@@ -19,6 +19,7 @@ export class KitchenElementComponent {
   updateOrderState() {
     this.service.updateOrderState(this.order()).subscribe({
       next: (response: Order) => {
+        console.log(response)
       },
       error: (err) => {
         console.error(err)
