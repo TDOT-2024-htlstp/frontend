@@ -13,14 +13,6 @@ export class KitchenService {
 
   elements = signal<Order[] | undefined>(undefined);
 
-  deleteOrderById(id: number) {
-    this.elements.update((orders) => {
-      if (!orders) return orders;
-
-      return orders.filter(order => order.id !== id);
-    });
-  }
-
   getAllOrders(): Observable<Order[]> {
     return this.http.get<Order[]>("http://localhost:8080/api/orders");
   }
