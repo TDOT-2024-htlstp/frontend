@@ -1,8 +1,8 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Order} from "../../types/order";
 import {KitchenElementComponent} from "../kitchen-element/kitchen-element.component";
 import {KitchenService} from "../../service/kitchen.service";
-import {io} from "socket.io-client";
+import {EventService} from "../../service/event.service";
 
 @Component({
   selector: 'app-kitchen',
@@ -15,46 +15,22 @@ import {io} from "socket.io-client";
 })
 export class KitchenComponent implements OnInit {
 
-  elements = signal<Order[] | undefined>(undefined);
-
-  constructor(private service: KitchenService) {
+  constructor(protected kitchenService: KitchenService, protected event: EventService) {
   }
 
   ngOnInit(): void {
-
-    // this.service.socket = io("localhost:3001/kitchen");
-    //
-    // this.service.socket.on("connect", () => {
-    //   console.log("logged in: " + this.service.socket.id)
-    // });
-    //
-    // this.service.socket.on("orders", (orders: Order[]) => {
-    //   this.elements.set(orders);
-    // })
-    //
-    // this.service.socket.on("updated-order-state", () => {
-    //   console.log("order state updated")
-    //   //todo del from list
-    // })
-    //
-    // this.service.socket.on("order-update", (orders: Order[]) => {
-    //   console.log(orders)
-    // })
-
-    // this.elements.set(this.service.getOrdersMock());
-
-    // this.getAllOrders()
+    this.getAllOrders();
   }
 
-  // getAllOrders() {
-  //   this.service.getAllOrders().subscribe({
-  //     next: (response: Order[]) => {
-  //       this.elements.set(response);
-  //     },
-  //     error: (err) => {
-  //       console.error(err)
-  //     }
-  //   });
-  // }
+  getAllOrders() {
+    this.kitchenService.getAllOrders().subscribe({
+      next: (response: Order[]) => {
+        this.kitchenService.elements.set(response);
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    });
+  }
 
 }
