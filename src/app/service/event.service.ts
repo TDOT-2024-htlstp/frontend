@@ -10,7 +10,7 @@ export class EventService {
 
     constructor(private kitchenService: KitchenService) {
         this.client = new Client({
-            brokerURL: `ws://localhost:8080/gs-guide-websocket`
+            brokerURL: `ws://localhost:8080/restaurant`
         })
 
         this.client.onConnect = (frame) => {
