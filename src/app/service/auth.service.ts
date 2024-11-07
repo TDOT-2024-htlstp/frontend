@@ -17,18 +17,19 @@ export class AuthService {
     let local = localStorage.getItem("userId");
 
     console.log(param)
+    console.log(local)
 
-    if (param) {
-      this.userId = param;
+    if (param !== undefined) {
+      this.userId.set(param);
       localStorage.setItem("userId", this.userId()!)
-    } else if (local) {
+    } else if (local !== null) {
       this.userId.set(local);
     }
 
   }
 
   isAuthenticated(): boolean {
-    return this.userId !== undefined;
+    return this.userId() !== undefined;
   }
 
   async authenticate() {
