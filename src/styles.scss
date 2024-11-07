@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+}
+
+// Variables
+:root {
+  --layout-border: #a4a3a6;
+  --font-color: #484848;
+
+  --navbar-width: 115px;
+  --navbar-filler-height: 50px;
+
+  --section-height: 75px;
+
+  --summary-height: 100px;
+
+  --order-confirmation-title-height: 100px;
+
+  --shopping-cart-entry-height: 50px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}

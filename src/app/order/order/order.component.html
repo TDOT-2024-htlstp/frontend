@@ -1,1 +1,45 @@
-<p>order works!</p>
+<div id="order-screen">
+  <div id="top-bar">
+    Sie haben {{userService.coins()}} Münzen
+  </div>
+  <div id="overview">
+    <div id="navbar">
+      <div id="navbar-content">
+        <div id="logo">
+          <img id="htl-logo" src="assets/htl_logo.png" alt="htl logo">
+        </div>
+        <div id="sections">
+          @for (category of categoryService.categories(); track $index) {
+            <div (click)="selectCategory(category)"
+                 [class.selected]="category.id == categoryService.selectedCategory()?.id">{{ category.name }}
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div id="product-catalog">
+      @for (product of productService.productsByCategory().get(categoryService.selectedCategory()?.id ?? -1); track $index) {
+        <div class="product">
+          <img class="product-image" [src]="backend.with(product.imagePath)">
+          <div class="product-name">{{ product.name }}</div>
+          <div class="product-price">{{ product.price }} Münzen</div>
+          <div class="product-button-container">
+            <button (click)="shoppingCartService.add(product)" class="add-button">+</button>
+            <div>{{ shoppingCartService.shoppingCart().get(product) ?? 0 }} Stk.</div>
+            <button (click)="shoppingCartService.sub(product)" class="sub-button">-</button>
+          </div>
+        </div>
+      }
+      @if (productService.productsByCategory().get(categoryService.selectedCategory()?.id ?? -1)?.length ?? 2 % 2 == 1) {
+        <div class="product"></div>
+      }
+    </div>
+  </div>
+  <div id="summary">
+    <div id="summary-content">
+      <img id="shopping-cart-icon" src="assets/shopping_cart.png" alt="shopping cart icon" (click)="goToOrderOverview()"/>
+      <div id="shopping-cart-amount">{{shoppingCartService.total()}} Münzen</div>
+      <button id="order-button" (click)="goToOrderOverview()">Bestellen</button>
+    </div>
+  </div>
+</div>
