@@ -1,0 +1,41 @@
+<div id="confirm-order">
+  <div id="top-bar">
+    Sie haben {{userService.coins()}} Münzen
+  </div>
+  <div id="overview">
+    <div id="title">Your order:</div>
+
+    <div id="product-list">
+      @for (entry of shoppingCartService.asOrder().entries; track $index) {
+        <div class="product">
+          <div class="product-description">
+            <div class="product-add" (click)="shoppingCartService.add(entry.product)">+</div>
+            <div>{{ shoppingCartService.shoppingCart().get(entry.product) }}</div>
+            <div class="product-sub" (click)="shoppingCartService.sub(entry.product)">-</div>
+            <div>|</div>
+            <div>{{ entry.product.name }}</div>
+          </div>
+          <div class="product-price">{{ entry.product.price * entry.amount }} Münzen</div>
+        </div>
+      }
+      <div id="total">
+        <div>
+          Summe:
+        </div>
+        <div>
+          {{ shoppingCartService.total() }} Münzen
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="summary">
+    <div id="summary-content">
+      <img id="shopping-cart-icon" src="assets/go_back.png" alt="shopping cart icon" (click)="goBack()"/>
+      <div id="center-bar">
+        <div id="shopping-cart-amount">{{ shoppingCartService.total() }} Münzen</div>
+        <button id="order-button" (click)="sendOrder()">Bestellung abschicken</button>
+      </div>
+      <div id="summary-placeholder"></div>
+    </div>
+  </div>
+</div>

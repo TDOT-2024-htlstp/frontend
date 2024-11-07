@@ -1,0 +1,12 @@
+<div id="order-display">
+  <div id="top">
+    <div id="title">Ihre Bestellung</div>
+    <div id="order-id">{{ orderId().padStart(4, "0") }}</div>
+    <div id="description">
+      Bitte gehen Sie zum Kiosk, holen Sie Ihre Rechnung und warten, bis Ihre Bestellung fertig ist.
+    </div>
+  </div>
+  <div id="bottom">
+    <button id="close-button" (click)="goBack()">Schließen</button>
+  </div>
+</div>

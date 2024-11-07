@@ -1,0 +1,55 @@
+#order-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100vh;
+  width: 100vw;
+
+  padding: 48px;
+  box-sizing: border-box;
+
+  #top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 16px;
+    #title {
+      font-size: 42px;
+    }
+
+    #order-id {
+      font-size: 38px;
+    }
+
+    #description {
+      text-align: center;
+      padding-top: 128px;
+      width: 75%;
+    }
+  }
+
+  #bottom {
+    #close-button {
+      padding: 6px 12px;
+      background-color: indianred;
+      border-color: indianred;
+      border-radius: 8px;
+      border-style: solid;
+      transition-duration: 100ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lighten(indianred, 7%);
+        border-color: lighten(indianred, 7%);
+      }
+
+      &:active {
+        background-color: darken(indianred, 7%);
+        border-color: darken(indianred, 7%);
+      }
+    }
+  }
+}
