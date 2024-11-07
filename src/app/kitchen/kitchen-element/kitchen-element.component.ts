@@ -21,7 +21,7 @@ export class KitchenElementComponent {
       next: (response: Order) => {
         console.log(response)
 
-        this.service.deleteOrderById(this.order().id)
+        // this.service.deleteOrderById(this.order().id)
       },
       error: (err) => {
         console.error(err)

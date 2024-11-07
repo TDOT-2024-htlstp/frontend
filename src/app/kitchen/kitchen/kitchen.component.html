@@ -1,5 +1,7 @@
 @for (element of kitchenService.elements(); track element.id) {
-  <app-kitchen-element [order]="element"></app-kitchen-element>
+  @if (element.status == "IN_PROGRESS") {
+    <app-kitchen-element [order]="element"></app-kitchen-element>
+  }
 }
 
 <button (click)="event.onSendMessage()">send test message</button>

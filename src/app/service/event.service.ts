@@ -17,11 +17,12 @@ export class EventService {
             console.log('Connected: ' + frame);
 
             //get test message
-            this.client.subscribe("/topic/greetings", (message => {
+            this.client.subscribe("/api/greetings", (message => {
                 console.log(message.body)
             }))
 
             this.client.subscribe("/api/orders", (orders => {
+                console.log(orders.body)
                 this.kitchenService.elements.set(JSON.parse(orders.body))
             }))
         };

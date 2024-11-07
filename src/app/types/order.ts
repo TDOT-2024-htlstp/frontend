@@ -1,7 +1,7 @@
 import {ProductEntry} from "./productEntry";
 
 export type Order = {
-  status: "in_progress" | "done";
+  status: "IN_PROGRESS" | "READY" | "FINISHED";
   id: string;
   entries: ProductEntry[]
 }
