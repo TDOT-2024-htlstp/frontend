@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.order-button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border: 2px solid #3498db; /* Button-Rahmenfarbe */
+  border-radius: 12px;
+  background-color: #eaf6fd; /* Heller Hintergrund */
+  color: #333;
+  cursor: pointer; /* Zeigt an, dass es anklickbar ist */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  margin: 20px auto;
+  text-align: left;
+  outline: none;
+  border: none; /* Entfernt Standard-Button-Stil */
+}
+
+.order-button:hover {
+  background-color: #d1e9f9; /* Hintergrundfarbe bei Hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.order-button:active {
+  background-color: #b3d7f5; /* Hintergrundfarbe bei Klick */
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.order-id {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #d0e3f0;
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+span {
+  font-size: 18px;
+}
+
+.product-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.product-amount {
+  color: #666;
+}

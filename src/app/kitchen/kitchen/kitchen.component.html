@@ -1,1 +1,5 @@
-<p>kitchen works!</p>
+@for (element of kitchenService.elements(); track element.id) {
+  @if (element.status == "IN_PROGRESS") {
+    <app-kitchen-element [order]="element"></app-kitchen-element>
+  }
+}
