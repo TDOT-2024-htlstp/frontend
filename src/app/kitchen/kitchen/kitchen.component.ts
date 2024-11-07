@@ -15,7 +15,7 @@ import {EventService} from "../../service/event.service";
 })
 export class KitchenComponent implements OnInit {
 
-  constructor(protected kitchenService: KitchenService, protected event: EventService) {
+  constructor(protected kitchenService: KitchenService, private service: KitchenService) {
   }
 
   ngOnInit(): void {
@@ -26,6 +26,17 @@ export class KitchenComponent implements OnInit {
     this.kitchenService.getAllOrders().subscribe({
       next: (response: Order[]) => {
         this.kitchenService.elements.set(response);
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    });
+  }
+
+  updateOrderState(order: Order) {
+    this.service.updateOrderState(order).subscribe({
+      next: (response: Order) => {
+        console.log(response)
       },
       error: (err) => {
         console.error(err)

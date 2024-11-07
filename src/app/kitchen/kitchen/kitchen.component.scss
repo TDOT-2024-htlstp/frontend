@@ -1,0 +1,57 @@
+#header {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+}
+
+.split-screen {
+  display: flex;
+  max-height: calc(100vh - 80px);
+}
+
+.blue-container, .red-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.blue {
+  background-color: #eaf6fd;
+}
+
+.blue:hover {
+  background-color: #d1e9f9;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.blue:active {
+  background-color: #b3d7f5;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Rotes Element-Styling */
+.red {
+  background-color: #fdeaea;
+}
+
+.red:hover {
+  background-color: #f9d1d1;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.red:active {
+  background-color: #f5b3b3;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.kitchen-item {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+
+}

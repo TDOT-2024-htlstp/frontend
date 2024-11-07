@@ -1,10 +1,11 @@
-<button (click)="updateOrderState()" class="order-button">
-  <h1 class="order-id">Bestell-ID: {{ order().id!.toString().padStart(4, "0") }}</h1>
+<button class="order-button"
+        [ngClass]="{'blue': color() == 'blue', 'red': color() == 'red'}">
+    <h1 class="order-id">Bestell-ID: {{ order().id!.toString().padStart(4, "0") }}</h1>
 
-  @for (entry of order().entries; track entry.id) {
-    <div class="entry">
-      <span class="product-name">{{ entry.product.name }}:</span>
-      <span class="product-amount">{{ entry.amount }}</span>
-    </div>
-  }
+    @for (entry of order().entries; track entry.id) {
+        <div class="entry">
+            <span class="product-name">{{ entry.product.name }}:</span>
+            <span class="product-amount">{{ entry.amount }}</span>
+        </div>
+    }
 </button>
