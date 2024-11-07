@@ -17,14 +17,16 @@ export class KitchenElementComponent {
   }
 
   updateOrderState() {
-    this.service.updateOrderState(this.order()).subscribe({
-      next: (response: Order) => {
-        console.log(response)
-      },
-      error: (err) => {
-        console.error(err)
-      }
-    });
+    this.service.socket.emit('update-order-state', {id: this.order().uuid});
+
+    // this.service.updateOrderState(this.order()).subscribe({
+    //   next: (response: Order) => {
+    //     console.log(response)
+    //   },
+    //   error: (err) => {
+    //     console.error(err)
+    //   }
+    // });
   }
 
 
