@@ -3,13 +3,10 @@ import {CategoryService} from "../../service/category.service";
 import {ProductService} from "../../service/product.service";
 import {Category} from "../../types/category";
 import {ShoppingCartService} from "../../service/shopping-cart.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {routes} from "../../app.routes";
+import {Router} from "@angular/router";
 import {ErrorService} from "../../service/error.service";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
-import {StatusComponent} from "../../status/status/status.component";
-import { Client, IMessage } from '@stomp/stompjs';
 import {BackendService} from "../../service/backend.service";
 
 @Component({
