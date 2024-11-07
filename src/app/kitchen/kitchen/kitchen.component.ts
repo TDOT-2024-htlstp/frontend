@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Order} from "../../types/order";
 import {KitchenElementComponent} from "../kitchen-element/kitchen-element.component";
 import {KitchenService} from "../../service/kitchen.service";
-import {EventService} from "../../service/event.service";
 
 @Component({
   selector: 'app-kitchen',
@@ -15,7 +14,7 @@ import {EventService} from "../../service/event.service";
 })
 export class KitchenComponent implements OnInit {
 
-  constructor(protected kitchenService: KitchenService, private service: KitchenService) {
+  constructor(protected kitchenService: KitchenService) {
   }
 
   ngOnInit(): void {
@@ -34,7 +33,7 @@ export class KitchenComponent implements OnInit {
   }
 
   updateOrderState(order: Order) {
-    this.service.updateOrderState(order).subscribe({
+    this.kitchenService.updateOrderState(order).subscribe({
       next: (response: Order) => {
         console.log(response)
       },
