@@ -1,5 +1,5 @@
 <button (click)="updateOrderState()" class="order-button">
-  <h1 class="order-id">Bestell-ID: {{ order().id }}</h1>
+  <h1 class="order-id">Bestell-ID: {{ order().id.toString().padStart(4, "0") }}</h1>
 
   @for (entry of order().entries; track entry.id) {
     <div class="entry">

@@ -19,9 +19,6 @@ export class KitchenElementComponent {
   updateOrderState() {
     this.service.updateOrderState(this.order()).subscribe({
       next: (response: Order) => {
-        console.log(response)
-
-        // this.service.deleteOrderById(this.order().id)
       },
       error: (err) => {
         console.error(err)

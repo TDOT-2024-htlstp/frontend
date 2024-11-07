@@ -13,7 +13,7 @@ export class KitchenService {
 
   elements = signal<Order[] | undefined>(undefined);
 
-  deleteOrderById(id: string) {
+  deleteOrderById(id: number) {
     this.elements.update((orders) => {
       if (!orders) return orders;
 
