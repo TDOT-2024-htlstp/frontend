@@ -47,8 +47,15 @@ export class ConfirmOrderComponent {
         'Access-Control-Allow-Origin':'*',
       }
     }));
+    await firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, order, {
+      headers: {
+        'Access-Control-Allow-Origin':'*',
+      }
+    }));
 
     this.shoppingCartService.clear();
+
+
 
     await this.router.navigate(["order", "display"], {
       queryParams: {
