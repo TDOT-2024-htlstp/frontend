@@ -14,7 +14,7 @@ export class ProductService {
   private internalProductsByCategory: WritableSignal<Map<number, Product[]>> = signal(new Map());
   public productsByCategory: Signal<Map<number, Product[]>> = this.internalProductsByCategory.asReadonly();
 
-  constructor(private httpClient: HttpClient, private backend: BackendService, private eventService: EventService) {
+  constructor(private httpClient: HttpClient, private backend: BackendService) {
   }
 
   async fillCategory(id: number) {
@@ -32,5 +32,9 @@ export class ProductService {
     }))
 
     this.internalProductsByCategory().set(id, response);
+  }
+
+  override(map: Map<number, Product[]>) {
+    this.internalProductsByCategory.set(map);
   }
 }
