@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   async authenticate() {
-    let response = await firstValueFrom(this.http.get<{value: string}>(`https://schnitzeljagd.if.htlstp.ac.at/api/auth/createRedirectUri?state=${window.crypto.randomUUID()}&redirect_uri=https://htlstp.ac.at`))
+    let response = await firstValueFrom(this.http.get<{value: string}>(`https://schnitzeljagd.if.htlstp.ac.at/api/auth/createRedirectUri?state=${window.crypto.randomUUID()}&redirect_uri=https://restaurante.htlstp.ac.at/order`))
     window.location.assign(response.value)
   }
 
