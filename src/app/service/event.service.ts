@@ -45,7 +45,7 @@ export class EventService {
       this.client.subscribe("/api/order", (order => {
         console.log(order.body)
 
-        firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, order.body, {
+        firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, JSON.parse(order.body), {
           headers: {
             'Access-Control-Allow-Origin': '*',
           }
