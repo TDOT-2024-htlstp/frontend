@@ -5,13 +5,15 @@ import {StatusComponent} from "./status/status/status.component";
 import {ErrorComponent} from "./error/error.component";
 import {ConfirmOrderComponent} from "./confirmOrder/confirm-order/confirm-order.component";
 import {OrderDisplayComponent} from "./order-display/order-display/order-display.component";
+import {InternalComponent} from "./internal/internal/internal.component";
 
 export const routes: Routes = [
-  {"path": "", redirectTo: "/order", pathMatch: "full" },
+  {"path": "", redirectTo: "/order", pathMatch: "full"},
   {"path": "kitchen", component: KitchenComponent},
   {"path": "order", component: OrderComponent},
   {"path": "order/confirm", component: ConfirmOrderComponent},
   {"path": "order/display", component: OrderDisplayComponent},
   {"path": "status", component: StatusComponent},
+  {"path": "internal/print", component: InternalComponent},
   {"path": "**", component: ErrorComponent},
 ];

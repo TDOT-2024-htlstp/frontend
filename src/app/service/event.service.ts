@@ -4,6 +4,8 @@ import {BackendService} from "./backend.service";
 import {KitchenService} from "./kitchen.service";
 import {Product} from "../types/product";
 import {ProductService} from "./product.service";
+import {firstValueFrom} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ import {ProductService} from "./product.service";
 export class EventService {
   private client: Client;
 
-  constructor(backend: BackendService, productService: ProductService, private kitchenService: KitchenService) {
+  constructor(private backend: BackendService, private http: HttpClient, productService: ProductService, private kitchenService: KitchenService) {
     this.client = new Client({
       brokerURL: `${backend.wsUrl}restaurant`
     })
@@ -38,6 +40,16 @@ export class EventService {
         console.log(map)
 
         productService.override(map)
+      }))
+
+      this.client.subscribe("/api/order", (order => {
+        console.log(order.body)
+
+        firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, order, {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          }
+        })).then();
       }))
 
     };

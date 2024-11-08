@@ -44,17 +44,21 @@ export class ConfirmOrderComponent {
     let order = this.shoppingCartService.asOrder();
     order = await firstValueFrom(this.http.post<Order>(this.backend.with("/api/orders/process"), order, {
       headers: {
-        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Origin': '*',
       }
     }));
-    await firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, order, {
+    // await firstValueFrom(this.http.post(`${this.backend.receiptUrl}order`, order, {
+    //   headers: {
+    //     'Access-Control-Allow-Origin':'*',
+    //   }
+    // }));
+    await firstValueFrom(this.http.post(this.backend.with("/api/print"), order, {
       headers: {
-        'Access-Control-Allow-Origin':'*',
+        'Access-Control-Allow-Origin': '*',
       }
     }));
 
     this.shoppingCartService.clear();
-
 
 
     await this.router.navigate(["order", "display"], {
