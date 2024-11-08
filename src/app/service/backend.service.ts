@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class BackendService {
 
-  public readonly url = "https://tdot-backend.tobinio.at/";
-  public readonly wsUrl = "wss://tdot-backend.tobinio.at/";
+  public readonly url = "http://localhost:8080/";
+  public readonly wsUrl = "ws://localhost:8080/";
   public readonly receiptUrl = "http://localhost:8081/";
 
   constructor() { }
